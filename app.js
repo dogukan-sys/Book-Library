@@ -5,7 +5,6 @@ function Book() {
     this.author = undefined
     this.pages = undefined
     this.readStatus = undefined
-    this.coverImage = undefined
 }
 
 
@@ -18,7 +17,6 @@ function addBookToLibrary(title, author, genre, pages, readStatus, coverImage ) 
     newBook.genre = args[2]
     newBook.pages = args[3]
     newBook.readStatus = args[4]
-    newBook.coverImage = args[5]
     
     myLibrary.push( newBook )
 }
