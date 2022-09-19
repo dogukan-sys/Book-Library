@@ -6,7 +6,7 @@ body {
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-rows: 0.5fr 5fr 0.5fr;
+    grid-template-rows: 5rem 1fr 5rem;
 }
 
 .navbar {
@@ -29,23 +29,14 @@ body {
     display: grid;
     grid-template-areas:    "title status"
                             "author status"
+                            "genre status"
                             "pages status";
     grid-template-columns: 3fr 1fr;
 }
+/* appending elements to grid area */
+.card_title { grid-area: title; }
+.card_author { grid-area: author; }
+.card_genre { grid-area: genre; }
+.card_pages { grid-area: pages; }
+.card_status { grid-area: status; }
 
-
-.card_title {
-    grid-area: title;
-}
-
-.card_author {
-    grid-area: author;
-}
-
-.card_pages {
-    grid-area: pages;
-}
-
-.card_status {
-    grid-area: status;
-}
