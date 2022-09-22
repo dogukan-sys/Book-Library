@@ -64,14 +64,9 @@ function createCard(title, author, genre, pages, readStatus) {
 
 function libToCard() {
     for (i=0; i< myLibrary.length; i++) {
-        console.log(myLibrary[i].title)
+        var tempBook = myLibrary[i]
+        createCard(tempBook.title, tempBook.author, tempBook.genre, tempBook.pages, tempBook.readStatus)
     }
 }
-
-addBookToLibrary('One Piece', 'Eichiro Oda', 'Shonen', '100 volumes', 'reading')
-
-addBookToLibrary('One Piece', 'Eichiro Oda', 'Shonen', '100 volumes', 'reading')
-
-addBookToLibrary('One Piece', 'Eichiro Oda', 'Shonen', '100 volumes', 'reading')
 
 libToCard()
