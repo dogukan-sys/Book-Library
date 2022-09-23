@@ -1,42 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root {
+    --accent: #80aed2;
+    --background: #19171a;
+    --cards: #201e21;
+    --fg: #d8dee9;
+    --sfg: #2c292e;
+}
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    transition: 0.2s ease-in-out;
 }
 body {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
     display: grid;
-    grid-template-rows: 5rem 1fr 5rem;
+    grid-template-rows: 8rem 1fr 5rem;
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--background);
+    padding:  0 20vw;
 }
 
-.navbar {
-    height: 5rem;
-    display: flex;
-    gap: 25px;
-    justify-content: space-evenly;
-    align-items: center;
-    list-style: none;
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: var(--sfg);
+  }
 
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--background)
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--sfg);
+    border-radius: 10px;
+    border: 3px solid var(--background);
+  }
+
+
+
+
+
+header  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    color: var(--fg)
+}
+
+#themeButton {
+    position: absolute;
+    margin: 2em 2em 0 0;
+    right: 0;
+    top: 0;
+    color: var(--fg);
+    border: none;
+    cursor: pointer;
+    background-color: #00000000;
+}
+
+button {
+    background-color: #00000000;
+    border: none;
+}
+button:hover {
+    cursor: pointer;
+}
+
+button svg {
+    stroke: var(--fg);
 }
 
 .card_container {
     display: grid;
-    gap: 1em;
-    padding: 1rem;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    margin-bottom: 30px;
 }
 
 .card {
     display: grid;
-    grid-template-areas:    "title status"
-                            "author status"
-                            "genre status"
-                            "pages status";
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr;
+    background-color: var(--cards);
+    box-shadow: 0 5px 30px rgb(0 0 0 / 35%);
+    border-radius: 5px;
+    padding: 1rem;
 }
-/* appending elements to grid area */
-.card_title { grid-area: title; }
-.card_author { grid-area: author; }
-.card_genre { grid-area: genre; }
-.card_pages { grid-area: pages; }
-.card_status { grid-area: status; }
 
+.card:hover {
+    background-color: var(--accent);
+    transform: translateY(-0.2rem);
+    box-shadow: 0 10px 10px rgb(0 0 0 / 35%);
+}
+
+.card:hover p{
+    color: var(--sfg);
+}
+
+
+p {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--fg);
+}
+
+p.card_status {
+    justify-content: center;
+
+}
+
+p > span {
+    padding-left: 1rem;
+    font-weight: 600;
+}
+
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--background);
+    padding: 1rem;
+}
