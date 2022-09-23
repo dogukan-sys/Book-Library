@@ -32,18 +32,18 @@ function createCard(title, author, genre, pages, readStatus, index) {
     const card_author = document.createElement('p')
     const card_genre = document.createElement('p')
     const card_pages = document.createElement('p')
-    const card_status = document.createElement('p')
-    const card_delete = document.createElement('p')
+    const card_status = document.createElement('button')
+    const card_delete = document.createElement('button')
     // Setting Class names for css
 
     card.className = 'card'
     card.dataset.index = index
-    card_title.className = 'card_title'
-    card_author.className = 'card_author'
-    card_genre.className = 'card_genre'
-    card_pages.className = 'card_pages'
-    card_status.className = 'card_status'
-    card_delete.className = 'card_delete'
+    card_title.className = 'card_element card_title'
+    card_author.className = 'card_element card_author'
+    card_genre.className = 'card_element card_genre'
+    card_pages.className = 'card_element card_pages'
+    card_status.className = 'card_element card_status'
+    card_delete.className = 'card_element card_delete'
 
     // Setting corret innerText for each element
 
@@ -85,10 +85,6 @@ function removeBook(index) {
     myLibrary.splice(index, 1)
     libToCard()
 }
-
-// Event handlers
-
-
 
 addBookToLibrary('The Hobbit', 'J. R. R. Tolkien', ['High fantasy','Juvenile fantasy'], '310', false)
 

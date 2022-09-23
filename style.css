@@ -120,13 +120,12 @@ button svg {
     box-shadow: 0 10px 10px rgb(0 0 0 / 35%);
 }
 
-.card:hover p, .card:hover svg{
+.card:hover .card_element, .card:hover svg{
     color: var(--sfg);
     stroke: var(--sfg);
 }
 
-
-p {
+.card_element  {
     display: flex;
     padding: 8px;
     font-size: 1rem;
@@ -134,16 +133,15 @@ p {
     color: var(--fg);
 }
 
-p.card_status, p.card_delete {
+button.card_element {
     margin-top: 5px;
     justify-content: center;
-
 }
 
-p.card_status:hover, p.card_delete:hover {
+button.card_element:hover {
     transform: translateY(-0.2rem);
-    box-shadow: 0 10px 10px rgb(0 0 0 / 35%);
-    border: 2px solid rgb(0 0 0 / 10%) ;
+    box-shadow: 0px 1px 16px rgb(0 0 0 / 25%);
+    outline: none;
     cursor: pointer;
 }
 
