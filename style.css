@@ -86,7 +86,7 @@ button svg {
 .card_container {
     display: grid;
     gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
     margin-bottom: 30px;
 }
 
@@ -112,7 +112,6 @@ button svg {
 
 p {
     display: flex;
-    align-items: center;
     padding: 8px;
     font-size: 1rem;
     font-weight: 700;
