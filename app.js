@@ -1,3 +1,20 @@
+// Variables
+const addBookButton = document.querySelector('#addBook')
+const modal = document.querySelector('.modal')
+const closeBtn = document.querySelector('#cancel')
+const 
+
+
+addBookButton.addEventListener('click', () => {
+    modal.style.display = "block"
+})
+
+closeBtn.onclick = function() {
+    modal.style.display = "none";
+}
+  
+
+
 let myLibrary = []
 
 
@@ -93,8 +110,7 @@ function updateScreen() {
     libToCard()
 }
 
-function createForm() {
-    
+function getFormData() {
 }
 
 addBookToLibrary('The Hobbit', 'J. R. R. Tolkien', ['High fantasy','Juvenile fantasy'], '310', false)
@@ -107,13 +123,6 @@ libToCard()
 function EventHandlers() {
     const readButtons = document.querySelectorAll('.card_status')
     const removeButtons = document.querySelectorAll('.card_delete')
-    const addBookButton = document.querySelector('#addBook')
-
-    // addBook to Library list 
-    addBookButton.addEventListener('click', () => {
-
-    })
-
 
     // Toggle read status
     readButtons.forEach((readButton) => {
