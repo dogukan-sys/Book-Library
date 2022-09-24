@@ -87,6 +87,7 @@ button svg {
     display: grid;
     gap: 30px;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-auto-rows: minmax(250px, 1fr);
     margin-bottom: 30px;
 }
 
@@ -101,7 +102,7 @@ button svg {
     background-color: var(--cards);
     box-shadow: 0 5px 30px rgb(0 0 0 / 35%);
     border-radius: 5px;
-    padding: 1rem;  
+    padding: 1rem;
     column-gap: 1rem;
 }
 
@@ -115,14 +116,8 @@ button svg {
 
 
 .card:hover {
-    background-color: var(--accent);
     transform: translateY(-0.2rem);
     box-shadow: 0 10px 10px rgb(0 0 0 / 35%);
-}
-
-.card:hover .card_element, .card:hover svg{
-    color: var(--sfg);
-    stroke: var(--sfg);
 }
 
 .card_element  {
@@ -140,16 +135,14 @@ button.card_element {
 
 button.card_element:hover {
     transform: translateY(-0.2rem);
-    box-shadow: 0px 1px 16px rgb(0 0 0 / 25%);
-    outline: none;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.35);
     cursor: pointer;
 }
 
-p > span {
+.card_element > span {
     padding-left: 1rem;
     font-weight: 600;
 }
-
 
 footer {
     display: flex;
@@ -165,6 +158,8 @@ footer {
 
 footer p {
     text-align: center;;
+    color: var(--fg);
+    font-size: 1.2rem;
 }
 
 
@@ -175,4 +170,14 @@ footer p {
     .quote {
         font-size: 0.8rem;
     }
+  }
+
+
+  /* Form Styling */
+
+
+  form {
+    display: flex;
+    
+    
   }
