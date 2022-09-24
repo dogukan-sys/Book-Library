@@ -66,24 +66,35 @@ function createCard(title, author, genre, pages, readStatus, index) {
     card_container.appendChild(card)
 }
 
-function libToCard() {
-
-    // remove existing cards
+function removeCards() {
     const bookcards = document.querySelectorAll('[data-index]')
     bookcards.forEach((bookcard) => {
         bookcard.remove()
     })
 
+}
+
+function libToCard() {
     // cycle library and create Card
     for (i=0; i< myLibrary.length; i++) {
         var tempBook = myLibrary[i]
         createCard(tempBook.title, tempBook.author, tempBook.genre, tempBook.pages, tempBook.readStatus,i)
     }
+    EventHandlers()
 }
 
 function removeBook(index) {
     myLibrary.splice(index, 1)
+    updateScreen()
+}
+
+function updateScreen() {
+    removeCards()
     libToCard()
+}
+
+function createForm() {
+    
 }
 
 addBookToLibrary('The Hobbit', 'J. R. R. Tolkien', ['High fantasy','Juvenile fantasy'], '310', false)
@@ -91,3 +102,39 @@ addBookToLibrary('The Hobbit', 'J. R. R. Tolkien', ['High fantasy','Juvenile fan
 addBookToLibrary('Harry Potter und der Stein der Weisen', 'J.K. Rowling', ['Fantasy'], '223', true)
 
 libToCard()
+
+
+function EventHandlers() {
+    const readButtons = document.querySelectorAll('.card_status')
+    const removeButtons = document.querySelectorAll('.card_delete')
+    const addBookButton = document.querySelector('#addBook')
+
+    // addBook to Library list 
+    addBookButton.addEventListener('click', () => {
+
+    })
+
+
+    // Toggle read status
+    readButtons.forEach((readButton) => {
+        readButton.addEventListener('click', (event) => {
+            const bookId = event.target.parentNode.dataset.index
+            if (myLibrary[bookId]['readStatus']) {
+                myLibrary[bookId]['readStatus'] = false 
+            } else {
+                myLibrary[bookId]['readStatus'] = true 
+            }
+            updateScreen()
+        })
+    })
+
+
+    // remove book from library and Screen
+    removeButtons.forEach((removeButton) => {
+        removeButton.addEventListener('click', (event) => {
+            removeBook(event.target.parentNode.dataset.index)
+            updateScreen()
+        })
+    })
+
+}
