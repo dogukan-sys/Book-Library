@@ -162,22 +162,85 @@ footer p {
     font-size: 1.2rem;
 }
 
+  /* Form Styling */
 
-@media screen and (max-width: 800px) {
+  .modal {
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+
+   form {
+    background-color: #fefefe;
+    margin: 15% auto;
+    width: 20%; 
+    background-color: var(--cards);
+    box-shadow: 0 5px 30px rgb(0 0 0 / 35%);
+    border-radius: 5px;
+    padding: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+  }
+
+  label{
+    color: var(--fg);
+    margin-bottom: 8px;
+    font-weight: bolder;
+  }
+
+  input, select {
+    color: var(--sfg);
+    background-color: var(--fg);
+    font-size: 0.8rem;
+    padding: 5px;
+    font-weight: 700;
+  }
+
+  .button-group {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    
+  }
+
+   .form-button{
+    font-weight: bolder;
+    display: flex;
+    align-items: center;;
+    justify-content: center;
+    padding: 1.5rem;
+    color: var(--fg);
+    height: 2rem;
+  }
+
+  .form-button:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 10px 10px rgb(0 0 0 / 35%);
+  }
+  
+
+  textarea, input, select { outline: none; }
+
+
+
+  @media screen and (max-width: 800px) {
     .card_container {
         grid-template-columns: 1fr;
     }
     .quote {
         font-size: 0.8rem;
     }
-  }
-
-
-  /* Form Styling */
-
-
-  form {
-    display: flex;
-    
-    
+    form {
+        width: 80%;
+    }
   }
