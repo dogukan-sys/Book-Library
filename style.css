@@ -87,7 +87,6 @@ button svg {
     display: grid;
     gap: 30px;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-auto-rows: minmax(250px, 1fr);
     margin-bottom: 30px;
 }
 
@@ -205,6 +204,7 @@ footer p {
     font-size: 0.8rem;
     padding: 5px;
     font-weight: 700;
+    border-radius: 6px;
   }
 
   .button-group {
