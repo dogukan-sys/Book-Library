@@ -70,12 +70,14 @@ function createCard(title, author, genre, pages, readStatus, index) {
     card_container.appendChild(card)
 }
 
-function removeCards() {
-    const bookcards = document.querySelectorAll('[data-index]')
-    bookcards.forEach((bookcard) => {
-        bookcard.remove()
-    })
+function removeCard(i) {
+    var bookcard = document.querySelector(`[data-index="${i}"]`)
+    bookcard.remove()
+}
 
+function removeBook(index) {
+    myLibrary.splice(index, 1)
+    removeCard(index)
 }
 
 function libToCard() {
@@ -89,16 +91,6 @@ function libToCard() {
         }
     }
     EventHandlers()
-}
-
-function removeBook(index) {
-    myLibrary.splice(index, 1)
-    updateScreen()
-}
-
-function updateScreen() {
-    removeCards()
-    libToCard()
 }
 
 function getFormData() {
@@ -125,7 +117,7 @@ function EventHandlers() {
             } else {
                 myLibrary[bookId]['readStatus'] = true 
             }
-            updateScreen()
+           
         })
     })
 
@@ -134,7 +126,6 @@ function EventHandlers() {
     removeButtons.forEach((removeButton) => {
         removeButton.addEventListener('click', (event) => {
             removeBook(event.target.parentNode.dataset.index)
-            updateScreen()
         })
     })
 
