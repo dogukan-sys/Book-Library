@@ -70,13 +70,6 @@ function createCard(title, author, genre, pages, readStatus, index) {
     card_container.appendChild(card)
 }
 
-function removeBook(index) {
-    const bookcards = document.querySelectorAll(`[data-index="${index}"]`)
-
-    bookcards[0].remove()
-    myLibrary.splice(index, 1)
-}
-
 function libToCard() {
     
     // cycle library and create Card
@@ -88,6 +81,15 @@ function libToCard() {
         }
     }
     EventHandlers()
+}
+
+function sortIndexes() {
+    const bookcards = document.querySelectorAll('[data-index]')
+    let count = 0
+    bookcards.forEach((bookcard) => {
+        bookcard.dataset.index = count
+        count++
+    })
 }
 
 function getFormData() {
@@ -122,11 +124,13 @@ function EventHandlers() {
 
     // remove book from library and Screen
     removeButtons.forEach((removeButton) => {
-        removeButton.addEventListener('click', (event) => {
-            removeBook(event.target.parentNode.dataset.index)
-        })
+        removeButton.onclick = function () {
+            const bookIndex = removeButton.parentNode.dataset.index
+            removeButton.parentNode.remove()
+            myLibrary.splice(bookIndex, 1)
+            sortIndexes()
+        }
     })
-
 }
 
 // Open close form modal
