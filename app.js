@@ -70,14 +70,11 @@ function createCard(title, author, genre, pages, readStatus, index) {
     card_container.appendChild(card)
 }
 
-function removeCard(i) {
-    var bookcard = document.querySelector(`[data-index="${i}"]`)
-    bookcard.remove()
-}
-
 function removeBook(index) {
+    const bookcards = document.querySelectorAll(`[data-index="${index}"]`)
+
+    bookcards[0].remove()
     myLibrary.splice(index, 1)
-    removeCard(index)
 }
 
 function libToCard() {
@@ -113,11 +110,12 @@ function EventHandlers() {
         readButton.addEventListener('click', (event) => {
             const bookId = event.target.parentNode.dataset.index
             if (myLibrary[bookId]['readStatus']) {
-                myLibrary[bookId]['readStatus'] = false 
+                myLibrary[bookId]['readStatus'] = false
+                event.target.innerHTML = 'not read'
             } else {
-                myLibrary[bookId]['readStatus'] = true 
+                myLibrary[bookId]['readStatus'] = true
+                event.target.innerHTML = 'read'
             }
-           
         })
     })
 
