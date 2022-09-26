@@ -26,6 +26,7 @@ function addBookToLibrary() {
     newBook.readStatus = args[4]
 
     myLibrary.push( newBook )
+    libToCard()
 }
 
 function createCard(title, author, genre, pages, readStatus, index) {
@@ -149,5 +150,4 @@ submitBook.onclick = function() {
     const formData = getFormData()
     addBookToLibrary(formData[0], formData[1], formData[2], formData[3], formData[4])
     modal.style.display = "none"
-    libToCard()
 }
