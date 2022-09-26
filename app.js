@@ -104,6 +104,13 @@ function getFormData() {
     
 }
 
+function clearFormData() {
+    const inputs = document.querySelectorAll('input')
+    inputs.forEach((input) => {
+        input.value = ''
+    })
+}
+
 function EventHandlers() {
     const readButtons = document.querySelectorAll('.card_status')
     const removeButtons = document.querySelectorAll('.card_delete')
@@ -149,5 +156,6 @@ closeBtn.onclick = function() {
 submitBook.onclick = function() {
     const formData = getFormData()
     addBookToLibrary(formData[0], formData[1], formData[2], formData[3], formData[4])
+    clearFormData()
     modal.style.display = "none"
 }
