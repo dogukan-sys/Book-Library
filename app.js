@@ -79,10 +79,14 @@ function removeCards() {
 }
 
 function libToCard() {
+    
     // cycle library and create Card
     for (i=0; i< myLibrary.length; i++) {
-        var tempBook = myLibrary[i]
-        createCard(tempBook.title, tempBook.author, tempBook.genre, tempBook.pages, tempBook.readStatus,i)
+        var bookcard = document.querySelectorAll(`[data-index="${i}"]`)
+        if (bookcard[0] === undefined) {
+            var tempBook = myLibrary[i]
+            createCard(tempBook.title, tempBook.author, tempBook.genre, tempBook.pages, tempBook.readStatus,i)
+        }
     }
     EventHandlers()
 }
@@ -152,5 +156,5 @@ submitBook.onclick = function() {
     const formData = getFormData()
     addBookToLibrary(formData[0], formData[1], formData[2], formData[3], formData[4])
     modal.style.display = "none"
-    updateScreen()
+    libToCard()
 }
