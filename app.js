@@ -2,21 +2,8 @@
 const addBookButton = document.querySelector('#addBook')
 const modal = document.querySelector('.modal')
 const closeBtn = document.querySelector('#cancel')
-const 
-
-
-addBookButton.addEventListener('click', () => {
-    modal.style.display = "block"
-})
-
-closeBtn.onclick = function() {
-    modal.style.display = "none";
-}
-  
-
-
+const submitBook = document.querySelector('#submitBook')
 let myLibrary = []
-
 
 // functions
 
@@ -37,7 +24,7 @@ function addBookToLibrary() {
     newBook.genre = args[2]
     newBook.pages = args[3]
     newBook.readStatus = args[4]
-    
+
     myLibrary.push( newBook )
 }
 
@@ -111,6 +98,14 @@ function updateScreen() {
 }
 
 function getFormData() {
+    const book_title = document.querySelectorAll('[name="book_title"]')[0].value
+    const book_author = document.querySelectorAll('[name="book_author"]')[0].value
+    const book_genre = document.querySelectorAll('[name="book_genre"]')[0].value
+    const book_pages = document.querySelectorAll('[name="book_pages"]')[0].value
+    const book_readStatus = document.querySelectorAll('[name="selectbox_read"]')[0].value
+
+    return [book_title, book_author, book_genre.split(','), book_pages, book_readStatus]
+    
 }
 
 addBookToLibrary('The Hobbit', 'J. R. R. Tolkien', ['High fantasy','Juvenile fantasy'], '310', false)
@@ -146,4 +141,23 @@ function EventHandlers() {
         })
     })
 
+}
+
+// Open close form modal
+
+addBookButton.addEventListener('click', () => {
+    modal.style.display = "block"
+})
+
+closeBtn.onclick = function() {
+    modal.style.display = "none"
+}
+  
+// Submit Book button
+
+submitBook.onclick = function() {
+    const formData = getFormData()
+    
+    addBookToLibrary(formData[0], formData[1], formData[2], formData[3], formData[4])
+    updateScreen()
 }
