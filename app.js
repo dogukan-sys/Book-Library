@@ -108,13 +108,6 @@ function getFormData() {
     
 }
 
-addBookToLibrary('The Hobbit', 'J. R. R. Tolkien', ['High fantasy','Juvenile fantasy'], '310', false)
-
-addBookToLibrary('Harry Potter und der Stein der Weisen', 'J.K. Rowling', ['Fantasy'], '223', true)
-
-libToCard()
-
-
 function EventHandlers() {
     const readButtons = document.querySelectorAll('.card_status')
     const removeButtons = document.querySelectorAll('.card_delete')
@@ -157,7 +150,7 @@ closeBtn.onclick = function() {
 
 submitBook.onclick = function() {
     const formData = getFormData()
-    
     addBookToLibrary(formData[0], formData[1], formData[2], formData[3], formData[4])
+    modal.style.display = "none"
     updateScreen()
 }
